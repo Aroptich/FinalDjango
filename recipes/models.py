@@ -30,7 +30,7 @@ class Category(models.Model):
 class Recipe_Category(models.Model):
     """Модель связующей таблицы рецептаи категорий в БД"""
     recipe = models.ForeignKey('Recipe', on_delete=models.CASCADE, related_name='recipe')
-    catigory = models.ForeignKey('Category', on_delete=models.CASCADE, related_name='category')
+    catigory = models.ManyToManyField('Category', on_delete=models.CASCADE, related_name='category')
 
     def __str__(self):
         return f'{self.recipe}'
